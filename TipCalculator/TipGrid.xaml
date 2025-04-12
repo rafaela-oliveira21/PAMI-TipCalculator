@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TipCalculator.TipGrid"
+             Title="TipGrid">
+
+            <!--Auto = Referente aos Elementos; 
+            * = Divisão proporcional do tamanho da tela;
+            999 = Definição fixa solicitada, como um HeightRequest.-->
+    <Grid 
+        RowDefinitions="Auto, Auto, Auto, *, Auto, Auto, Auto"
+        ColumnDefinitions="*, *"
+        Padding="40">
+
+        <Label Text="Total da conta" 
+               VerticalOptions="Center"
+               HorizontalOptions="Start"
+               Grid.Row="0" Grid.Column="0"/>
+        <Entry x:Name="billInputGrid" 
+               Placeholder="Insira o valor" 
+               Keyboard="Numeric"
+               VerticalOptions="Center"
+               Grid.Row="0" Grid.Column="1"/>
+        
+        <Label Text="Tip" 
+               VerticalOptions="Center"
+               Grid.Row="1" Grid.Column="0"/>
+        <Label x:Name="tipOutputGrid" Text="0.00"
+               Grid.Row="1" Grid.Column="1"/>
+
+        <Label Text="Total"
+               Grid.Row="2" Grid.Column="0"/>
+        <Label x:Name="totalOutputGrid" Text="0.00"
+               Grid.Row="2" Grid.Column="1"/>
+
+        <Label Text="Porcentagem de gorjeta"
+               VerticalOptions="End"
+               HorizontalOptions="Start"
+               Grid.Row="3" Grid.Column="0"/>
+        <Label x:Name="tipPercentGrid" Text="50%"
+               VerticalOptions="End"
+               HorizontalOptions="End"
+               Grid.Row="3" Grid.Column="1"/>
+        <Slider x:Name="tipPercentSliderGrid" 
+                Minimum="0" Maximum="100" Value="15"
+                Grid.Row="4" Grid.Column="0"
+                Grid.ColumnSpan="3"/>
+
+        <Button Text="15%" Clicked="OnNormalTipGrid"
+                Margin="5" Grid.Row="5" Grid.Column="0"/>
+        <Button Text="20%" Clicked="OnGenerousTipGrid"
+                Margin="5" Grid.Row="5" Grid.Column="1"/>
+
+        <Button x:Name="roundDownGrid" Text="Round Down" 
+                Clicked="roundDownGrid_Clicked"
+                Margin="5" Grid.Row="6" Grid.Column="0"/>
+        <Button x:Name="roundUpGrid" Text="Round Up" 
+                Clicked="roundUpGrid_Clicked"
+                Margin="5" Grid.Row="6" Grid.Column="1"/>
+
+    </Grid>
+</ContentPage>
